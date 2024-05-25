@@ -1,1 +1,1 @@
-# cse-185-project
+# NB-DEA: Differential Expression Analyzer
