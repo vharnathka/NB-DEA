@@ -7,6 +7,7 @@ def main():
         prog="nb-dea",
         description="Command-script to perform differential expression analysis"
     )
+    
     #Input 
     parser.add_argument("nb-dea", help="Whatever Whatever", \
                         type=str)
@@ -22,7 +23,7 @@ def main():
                         type=str, required=False)
 
     parser.add_argument("-f", "--filter", \
-                        help="filter you want to use", \
+                        help="lowest count you want to use", \
                         type=str, required=False)
     
     args = parser.parse_args()
