@@ -9,3 +9,16 @@ def PREPROCESS(samplenumA, samplenumB):
     avglength = og_input.iloc[:, 2*samplestotal: 3*samplestotal]
     
     return counts, avglength
+
+
+def FILTER(counts, avglength, threshold):
+    counts['Total'] = counts.sum(axis=1)
+
+    rows_to_drop = counts[counts['Total'] < threshold].index.tolist()
+
+    counts.drop(rows_to_drop, inplace=True)
+    counts.drop('Total', axis=1, inplace=True)
+
+    avglength.drop(rows_to_drop, inplace=True)
+    
+    return counts, avglength
