@@ -1,3 +1,3 @@
-file1
-file2
-file4
+~/public/lab4/HFD_Rep1.genes.results
+~/public/lab4/HFD_Rep2.genes.results
+~/public/lab4/HFD_Rep3.genes.results

@@ -4,6 +4,7 @@ import argparse
 import sys
 import os
 import rpy2.robjects as robjects
+from rpy2.robjects.vectors import StrVector
 
 def main():
     parser = argparse.ArgumentParser(
@@ -55,12 +56,23 @@ def main():
         file_names_B = [line.strip() for line in f if line.strip()]
 
     #getting the correct input format
-
-    robjects.r.source("inputter.R")
-    perform_txiimport = robjects.globalenv['perform_tximport']
-
     files = file_names_A + file_names_B
-    print(files)
+    
+    condition1 = os.path.splitext(os.path.basename(args.input_file1))[0]
+    condition2 = os.path.splitext(os.path.basename(args.input_file2))[0]
+    condition1 = [condition1] * len(file_names_A)
+    condition2 = [condition2] * len(file_names_B)
+    
+    conditions = condition1+condition2
+    
+    robjects.r.source("inputter.R")
+    files_r = StrVector(files)
+
+    perform_tximport = robjects.globalenv['perform_tximport']
+    txi_output = perform_tximport(files, conditions)
+    txi_output_py = robjects.pandas2ri.ri2py(txi_output)
+    txi_output_py.to_csv("txi_output.txt", sep="\t")
+
 
 if __name__ == "__main__":
     main()
