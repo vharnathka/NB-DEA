@@ -71,6 +71,10 @@ def main():
     if args.filter is not None:
         counts, avglength = myutils.FILTER(counts, avglength, float(args.filter))
         
+
+    #Normalization
+    counts = myutils.NORMALIZE(counts)
+        
     
 
 if __name__ == "__main__":
