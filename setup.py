@@ -24,7 +24,7 @@ setup(
     packages=find_packages(),
     entry_points={
         "console_scripts": [
-            "nb-dea=nb-dea:.nb-dea:main"
+            "nb-dea=nb-dea.nb-dea:main"
         ],
     },
 )
