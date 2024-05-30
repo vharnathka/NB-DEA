@@ -20,7 +20,7 @@ setup(
     version=VERSION,
     description='Project',
     author='Vedika Harnathka',
-    author_email='vharnathka@ucsd.edu'
+    author_email='vharnathka@ucsd.edu',
     packages=find_packages(),
     entry_points={
         "console_scripts": [
