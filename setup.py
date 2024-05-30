@@ -7,7 +7,7 @@ MAJ = 0
 MIN = 0
 REV = 0
 VERSION = '%d.%d.%d' % (MAJ, MIN, REV)
-with open(os.path.join(curdir, 'mypileup/version.py'), 'w') as fout:
+with open(os.path.join(curdir, 'nb-dea/version.py'), 'w') as fout:
         fout.write(
             "\n".join(["",
                        "# THIS FILE IS GENERATED FROM SETUP.PY",
