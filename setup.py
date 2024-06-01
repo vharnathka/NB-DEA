@@ -22,6 +22,9 @@ setup(
     author='Vedika Harnathka',
     author_email='vharnathka@ucsd.edu',
     packages=find_packages(),
+    install_requires=[
+        'rpy2',
+    ],
     entry_points={
         "console_scripts": [
             "nb-dea=nb_dea.nb_dea:main"
