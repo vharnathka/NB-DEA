@@ -66,16 +66,15 @@ def main():
     #Preprocessing:
     counts, avglength = myutils.PREPROCESS(samplenumA, samplenumB)
     
-    
     #Filtering
     if args.filter is not None:
         counts, avglength = myutils.FILTER(counts, avglength, float(args.filter))
         
-
     #Normalization
-    counts = myutils.NORMALIZE(counts)
-        
-    
+    samplestotal = samplenumA+samplenumB
+    counts = myutils.NORMALIZE(counts, samplestotal)
+    #actually doing the stats
+    myutils.NBA(counts, samplenumA, samplenumB)
 
 if __name__ == "__main__":
     main()
