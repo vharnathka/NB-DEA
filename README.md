@@ -1,13 +1,42 @@
 # NB-DEA: Differential Expression Analyzer
 
-Installation:
+## Project Description
+
+CSE 185 Final Project: Differential expression analyzer
+
+## Installation:
+
+### Prerequisites
+- Python 3.8
+- Required libraries: `requirements.txt`
+
+### Setting up the environment
+
+1. Clone the respository:
 
 ```
-pip install git+https://github.com/vharnathka/NB-DEA.git
+git clone https://github.com/vharnathka/NB-DEA.git
+cd NB-DEA
 ```
 
+2. Install the required libraries:
+```
+pip install pr requirements.txt
+```
 
-Usage:
+3. Install `nb_dea.py`
+```
+python setup.py install
+```
+If you do not have administrative rights on your system, add `--user` after that command and rerun.
+
+4. Verify the installation
+```
+which nb_dea
+nb_dea --help
+```
+
+## Usage:
 
 Insert two files:
 
