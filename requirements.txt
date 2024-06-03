@@ -1,0 +1,6 @@
+argparse
+rpy2
+pandas
+numpy
+statsmodels
+scipy
