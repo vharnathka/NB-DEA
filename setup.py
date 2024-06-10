@@ -16,7 +16,7 @@ with open(os.path.join(curdir, 'nb_dea/version.py'), 'w') as fout:
         )
         
 setup(
-    name='nb-dea',
+    name='nb_dea',
     version=VERSION,
     description='Project',
     author='Vedika Harnathka',
@@ -27,7 +27,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "nb-dea=nb_dea.nb_dea:main"
+            "nb_dea=nb_dea.nb_dea:main"
         ],
     },
 )
