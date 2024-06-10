@@ -21,7 +21,7 @@ cd NB-DEA
 
 2. Install the required libraries:
 ```
-pip install pr requirements.txt
+pip install -r requirements.txt
 ```
 
 3. Install `nb_dea.py`
