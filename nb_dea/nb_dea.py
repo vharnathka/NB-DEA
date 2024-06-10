@@ -5,7 +5,7 @@ import sys
 import os
 import rpy2.robjects as robjects
 from rpy2.robjects.vectors import StrVector
-from os.path.dirname(os.path.abspath(__file__)) import myutils
+import myutils
 
 def main():
     parser = argparse.ArgumentParser(
