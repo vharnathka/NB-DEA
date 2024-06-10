@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='nb_dea',
-    version='0.1.0',
+    version='0.0.0',
     description='Project',
     author='Vedika Harnathka',
     author_email='vharnathka@ucsd.edu',
