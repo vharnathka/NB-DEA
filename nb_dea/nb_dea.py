@@ -9,7 +9,7 @@ import myutils
 
 def main():
     parser = argparse.ArgumentParser(
-        prog="nb-dea",
+        prog="nb_dea",
         description="Command-script to perform differential expression analysis"
     )
 
