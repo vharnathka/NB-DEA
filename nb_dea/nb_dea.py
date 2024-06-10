@@ -20,11 +20,12 @@ def main():
     parser.add_argument("-o", "--out", help="Write output to file. Default: stdout", metavar="FILE", type=str, required=False)
 
     # Other Options
-    parser.add_argument("-m", "--model", help="Model you want to use", type=str, required=False)
+    parser.add_argument("-m", "--model", help="1 or 2", type=str)
     parser.add_argument("-f", "--filter", help="Lowest count you want to use", type=str, required=False)
 
     # Parse args
     args = parser.parse_args()
+    
     #Setup output file
     if args.out is None:
         outf = sys.stdout
@@ -61,7 +62,7 @@ def main():
     conditions_r = StrVector(conditions)
     
     perform_tximport = robjects.globalenv['perform_tximport']
-    perform_tximport(files, conditions_r)
+    perform_tximport(files, conditions_r, args.inputtype)
     
     #Preprocessing:
     counts, avglength = myutils.PREPROCESS(samplenumA, samplenumB)
@@ -73,8 +74,38 @@ def main():
     #Normalization
     samplestotal = samplenumA+samplenumB
     counts = myutils.NORMALIZE(counts, samplestotal)
+    
     #actually doing the stats
-    myutils.NBA(counts, samplenumA, samplenumB)
+    result_df = myutils.NBA(counts, samplenumA, samplenumB)
+    
+    #deleting uncessary files and printing final statements
+    if os.path.exists('nb-deainput.csv'):
+        try:
+            os.remove('nb-deainput.csv')
+        except Exception as e:
+            print("error removing input file")
+    
+    if args.out:
+        try:
+            result_df.to_csv(args.out, index=True)
+            print(f"Results saved to {args.out}")
+        except Exception as e:
+            print(f"Error saving to output file: {e}")
+            sys.exit(1)
+    else:
+        print("Results:")
+        print(result_df.to_string(index=True))
+
+    try:
+        with open('skipped_genes.txt', 'r') as f:
+            lines = f.readlines()
+            if len(lines) == 1:
+                  os.remove('skipped_genes.txt')
+            else:
+                print('We had to skip some genes during analysis due to low/irregular counts. They are saved in "skipped_genes.txt"')
+    except Exception as e:
+        print('cannot open skipped_genes')
+                            
 
 if __name__ == "__main__":
     main()

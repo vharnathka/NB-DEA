@@ -1,0 +1,3 @@
+HFD_Rep1.genes.results
+HFD_Rep2.genes.results
+HFD_Rep3.genes.results

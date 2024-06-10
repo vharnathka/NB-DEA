@@ -128,4 +128,5 @@ def NBA(counts, samplenumA, samplenumB):
     'padj': adj_p_values_dict
 })
     
-    results_df.to_csv('differential_expression_results.csv', index=True)
+    return results_df
+    #results_df.to_csv('differential_expression_results.csv', index=True)

@@ -1,3 +1,0 @@
-~/public/lab4/Chow_Rep1.genes.results
-~/public/lab4/Chow_Rep2.genes.results
-~/public/lab4/Chow_Rep3.genes.results

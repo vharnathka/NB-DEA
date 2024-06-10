@@ -1,0 +1,3 @@
+Chow_Rep1.genes.results
+Chow_Rep2.genes.results
+Chow_Rep3.genes.results
